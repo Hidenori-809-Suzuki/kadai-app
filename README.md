@@ -1,5 +1,19 @@
 # README
 
+`$ docker compose build`
+
+`$ docker compose up`
+
+localhost:3000 / アプリケーション
+
+localhost:8080 / PhpMyAdmin
+
+Ruby version 3.2.2
+
+Ruby on Rails 7.1.3.2
+
+Mysql 8.0
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
