@@ -1,0 +1,11 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <div class="">
+    <% if @user.imageposts.any? %>
+      <h3>imageposts (<%= @user.imageposts.count %>)</h3>
+      <ol class="">
+        <%= render @imageposts %>
+      </ol>
+    <% end %>
+  </div>
+</div>
