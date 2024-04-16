@@ -1,18 +1,26 @@
 class ImagepostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  # before_action :logged_in_user, only: [:new, :create, :destroy]
+
+  def new
+    @imagepost = current_user.imageposts.build(imagepost_params)
+    @imagepost.image.attach(params[:imagepost][:image])
+    if @imagepost.save
+      flash[:success] = "画像をアップロードしました"
+      redirect_to root_url
+    else
+      render 'new', status: :unprocessable_entity
+    end
+  end
 
   def create
     @imagepost = current_user.imageposts.build(imagepost_params)
     @imagepost.image.attach(params[:imagepost][:image])
     if @imagepost.save
-      flash[:success] = "Imagepost created!"
+      flash[:success] = "画像をアップロードしました"
       redirect_to root_url
     else
       render 'static_pages/home', status: :unprocessable_entity
     end
-  end
-
-  def destroy
   end
 
   private

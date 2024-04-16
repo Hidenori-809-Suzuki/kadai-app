@@ -1,0 +1,10 @@
+<% if logged_in? %>
+  <div class="row">
+    <h3>写真アップロード</h3>
+    <section class="imagepost_form">
+      <%= render 'shared/imagepost_form' %>
+    </section>
+  </div>
+<% else %>
+  <%= redirect_to root_url, status: :see_other %>
+<% end %>

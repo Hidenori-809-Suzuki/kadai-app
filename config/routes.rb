@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
   root "sessions#new"
-  get 'users/new'
-  # root "static_pages#home"
-  get "/help", to: "static_pages#help"
-  get "/about", to: "static_pages#about"
-  get "/signup", to: "users#new"
+  # get 'users/new'
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  get "/imageposts/new", to: "imageposts#new"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -15,8 +12,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  # root "static_pages#home"
   resources :users
   resources :imageposts, only: [:create, :destroy]
-  get '/imageposts', to: 'static_pages#home'
+  get '/imageposts', to: 'sessions#new'
 end

@@ -40,10 +40,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_11_134242) do
   end
 
   create_table "imageposts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.text "title"
     t.text "content"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_imageposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_imageposts_on_user_id"
   end
 

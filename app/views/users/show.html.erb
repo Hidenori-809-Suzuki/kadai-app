@@ -1,10 +1,17 @@
 <% provide(:title, @user.name) %>
 <div class="row">
   <div class="">
+    <%= @user.name %><br>
+    <%= link_to "ログアウトする", logout_path, data: { turbo_method: :delete }, onclick: "return confirm('ログアウトします。よろしいですか？')" %>
+    <h1>写真一覧</h1>
+    <p>アップロード画面へのリンク</p>
+    <%= link_to "写真アップロード", imageposts_new_path %>
+    <p>アップロードした画像を一覧表示できるようにする</p>
+    <p>ログインしていないときはログインページにリダイレクト</p>
     <% if @user.imageposts.any? %>
       <h3>imageposts (<%= @user.imageposts.count %>)</h3>
       <ol class="">
-        <%= render @imageposts %>
+        <%= render @user.imageposts %>
       </ol>
     <% end %>
   </div>

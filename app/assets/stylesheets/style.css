@@ -1,3 +1,30 @@
+/* universal */
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+.btn {
+  /* color: #fff; */
+  background-color: rgb(133,215,251)	;
+}
+
 /* forms */
 
 input, textarea {
@@ -19,3 +46,23 @@ input {
   }
 }
 
+/* .field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+} */
+
+.alert-danger {
+  color: red;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  color: red;
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+}
